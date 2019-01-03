@@ -35,7 +35,7 @@ const proxyConfig = [
     },
     // context，如果不配置，默认就是代理全部。
     router: [
-      '/wbalone', '/iuap-example','/eiap-plus/','/newref/', '/print_service/', '/iuap-print/'
+      '/wbalone', '/iuap-example','/eiap-plus/', '/print_service/', '/iuap-print/'
     ],
     url: 'http://172.20.53.69:8080'
   },
@@ -44,20 +44,20 @@ const proxyConfig = [
     enable: true,
     headers: {
       // 这是之前网页的地址，从中可以看到当前请求页面的链接。
-      "Referer": "http://127.0.0.1:8180"
+      "Referer": "http://192.168.137.99:8180"
     },
     // context，如果不配置，默认就是代理全部。
     router: [
-      '/iuap_pap_quickstart'
+      '/iuap-pap-quickstart','/newref/'
     ],
-    url: 'http://127.0.0.1:8180'
+    url: 'http://192.168.137.99:8180'
   }
 ];
 
 const globalEnvConfig = new webpack.DefinePlugin({
   __MODE__: JSON.stringify(process.env.NODE_ENV),
-  GROBAL_HTTP_CTX: JSON.stringify("/iuap_pap_quickstart")
-})
+  GROBAL_HTTP_CTX: JSON.stringify("/iuap-pap-quickstart")
+}) 
 
 const MINIMIZE_FLAG = (process.env.NODE_ENV == "production") ? true : false;
 
