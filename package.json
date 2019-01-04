@@ -4,6 +4,7 @@
   "description": "iuap 应用平台前端典型示例工程",
   "private": true,
   "scripts": {
+    "start": "npm run dev",
     "dev": "cross-env NODE_ENV=development uba server --chunks ",
     "test": "cross-env NODE_ENV=production uba server --chunks ",
     "build": "cross-env NODE_ENV=production uba build"

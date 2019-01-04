@@ -218,7 +218,7 @@ class Edit extends Component {
                                             })
                                         },
                                         showKey:'refname',
-                                        verification:false,//是否进行校验
+                                        verification:true,//是否进行校验
                                         verKey:'orderOrg',//校验字段
                                         verVal:orderOrg
                                     })} form={this.props.form}/>
@@ -242,9 +242,9 @@ class Edit extends Component {
                                         }
                                         )}>
                                         <Option value="">请选择</Option>
-                                            <Option value={ 1 }>日常采购</Option>
-                                            <Option value={ 2 }>计划采购</Option>
-                                            <Option value={ 3 }>合同采购</Option>
+                                            <Option value={ '1' }>日常采购</Option>
+                                            <Option value={ '2' }>计划采购</Option>
+                                            <Option value={ '3' }>合同采购</Option>
                                     </Select>
 
 
@@ -349,7 +349,7 @@ class Edit extends Component {
                                             })
                                         },
                                         showKey:'name',
-                                        verification:false,//是否进行校验
+                                        verification:true,//是否进行校验
                                         verKey:'currType',//校验字段
                                         verVal:currType
                                     })} form={this.props.form}/>
@@ -437,7 +437,7 @@ class Edit extends Component {
                                             })
                                         },
                                         showKey:'refname',
-                                        verification:false,//是否进行校验
+                                        verification:true,//是否进行校验
                                         verKey:'orderDept',//校验字段
                                         verVal:orderDept
                                     })} form={this.props.form}/>
@@ -484,10 +484,10 @@ class Edit extends Component {
                                 </Label>
                                     <RefWithInput disabled={btnFlag == 2} option={options({
                                                   title: '请购业务员',
-                                        refType: 5,//1:树形 2.单表 3.树卡型 4.多选 5.default
+                                        refType: 6,//1:树形 2.单表 3.树卡型 4.多选 5.default
                                         className: '',
                                         param: {//url请求参数
-                                            refCode: 'common_ref',
+                                            refCode: 'bd_common_user_table',
                                             tenantId: '',
                                             sysId: '',
                                             transmitParam: '5',
@@ -503,8 +503,8 @@ class Edit extends Component {
                                                 refKeyArrayorderBusiman: temp,
                                             })
                                         },
-                                        showKey:'peoname',
-                                        verification:false,//是否进行校验
+                                        showKey:'name',
+                                        verification:true,//是否进行校验
                                         verKey:'orderBusiman',//校验字段
                                         verVal:orderBusiman
                                     })} form={this.props.form}/>
