@@ -23,21 +23,15 @@ export default class Arrive_orderPaginationTable extends Component {
             delData:[],
             column:[
                 {
-                    title: "备注",
-                    dataIndex: "note",
-                    key: "note",
+                    title: "单据号",
+                    dataIndex: "billcode",
+                    key: "billcode",
                      width:200,
                 },
                 {
-                    title: "数量",
-                    dataIndex: "total",
-                    key: "total",
-                     width:200,
-                },
-                {
-                    title: "收货人",
-                    dataIndex: "receiver",
-                    key: "receiver",
+                    title: "库存组织",
+                    dataIndex: "pk_org",
+                    key: "pk_org",
                      width:200,
                 },
                 {
@@ -47,15 +41,15 @@ export default class Arrive_orderPaginationTable extends Component {
                      width:200,
                 },
                 {
-                    title: "到货时间",
-                    dataIndex: "receive_time",
-                    key: "receive_time",
+                    title: "收货人",
+                    dataIndex: "receiver",
+                    key: "receiver",
                      width:200,
                 },
                 {
-                    title: "单据号",
-                    dataIndex: "billcode",
-                    key: "billcode",
+                    title: "到货时间",
+                    dataIndex: "receive_time",
+                    key: "receive_time",
                      width:200,
                 },
                 {
@@ -64,10 +58,18 @@ export default class Arrive_orderPaginationTable extends Component {
                     key: "isback",
                      width:200,
                 },
+
+
                 {
-                    title: "库存组织",
-                    dataIndex: "pk_org",
-                    key: "pk_org",
+                    title: "备注",
+                    dataIndex: "note",
+                    key: "note",
+                     width:200,
+                },
+                {
+                    title: "数量",
+                    dataIndex: "total",
+                    key: "total",
                      width:200,
                 },
                 {

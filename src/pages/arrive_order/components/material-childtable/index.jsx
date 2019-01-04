@@ -313,9 +313,9 @@ class ChildTable extends Component {
             {editable
             ? (
             <Select
-                    defaultValue = '0'
-                    value = {value==1?value+'':'0'}
-                    onSelect = {value=>onSelect(value)}
+                    defaultValue = ''
+                    value = { value ? value + '' : '0' }
+                    onSelect = { value => onSelect(value) }
                 >
                 <Option value="1">个</Option>
                 <Option value="2">只</Option>

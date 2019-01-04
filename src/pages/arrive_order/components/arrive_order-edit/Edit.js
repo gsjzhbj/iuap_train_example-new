@@ -102,6 +102,10 @@ class Edit extends Component {
                 console.log('save delArray', delArraymaterial);
                 // 添加删除的数组，删除的数组中dr项的值都为1
                 let resultArray = childListmaterial.concat(delArraymaterial);
+                saveObj.total = 0;
+                childListmaterial.forEach(item => {
+                    saveObj.total +=  (Number(item.number) || 0);
+                });
                 let commitData = {
                     entity: saveObj,
                     sublist: {
@@ -253,9 +257,12 @@ class Edit extends Component {
         }
 
         let title = this.onChangeHead(btnFlag);
-        let { note, total, receiver, org, supplier, receive_time, billcode, isback, pk_org, } = rowData;
+        let { note, receiver, org, supplier, receive_time, billcode, isback, pk_org, } = rowData;
         const { getFieldProps, getFieldError } = this.props.form;
-
+        let total = 0;
+        childListmaterial.forEach(item=>{
+            total += (Number(item.number) || 0);
+        });
         return (
             <div className='arrive_order-detail'>
                 <Loading
@@ -470,23 +477,8 @@ class Edit extends Component {
                         <Label>
                             数量：
                                 </Label>
+                        {total || 0}
 
-
-                        <InputNumber
-                            precision={2}
-                            min={0}
-                            className={"input-number"}
-                            disabled={btnFlag == 2}
-                            {
-                            ...getFieldProps('total', {
-                                initialValue: typeof total !== 'undefined' && Number(total).toFixed(2) || 0.00,
-                                //rules: [{type: 'string',pattern: /^(?:(?!0\.00$))[\d\D]*$/ig,message: '请输入数字'}],
-                            })
-                            }
-                        />
-                        <span className='error'>
-                            {getFieldError('total')}
-                        </span>
                     </Col>
 
 
