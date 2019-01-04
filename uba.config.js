@@ -41,7 +41,7 @@ const proxyConfig = [
   },
   // 后台开发服务
   {
-    enable: true,
+    enable: false,
     headers: {
       // 这是之前网页的地址，从中可以看到当前请求页面的链接。
       "Referer": "http://192.168.137.99:8180"
@@ -54,7 +54,7 @@ const proxyConfig = [
   },
   // 后台开发服务
   {
-    enable: true,
+    enable: false,
     headers: {
       // 这是之前网页的地址，从中可以看到当前请求页面的链接。
       "Referer": "http://192.168.137.13:8180"
@@ -64,6 +64,19 @@ const proxyConfig = [
       '/iuap_pap_quickstart', '/newref'
     ],
     url: 'http://192.168.137.13:8180'
+  },
+  // 后台开发服务
+  {
+    enable: true,
+    headers: {
+      // 这是之前网页的地址，从中可以看到当前请求页面的链接。
+      "Referer": "http://127.0.0.1:8180"
+    },
+    // context，如果不配置，默认就是代理全部。
+    router: [
+      '/iuap_pap_quickstart', '/newref'
+    ],
+    url: 'http://127.0.0.1:8180'
   }
 
 ];
