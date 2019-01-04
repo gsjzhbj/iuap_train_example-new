@@ -57,6 +57,7 @@ export default class Arrive_orderPaginationTable extends Component {
                     dataIndex: "isback",
                     key: "isback",
                      width:200,
+                     render: (text, record, index) => text ? text === "1" ? "是" : "否" : ''
                 },
 
 

@@ -314,7 +314,7 @@ class ChildTable extends Component {
             ? (
             <Select
                     defaultValue = ''
-                    value = { value ? value + '' : '0' }
+                    value = { value ? value + '' : '' }
                     onSelect = { value => onSelect(value) }
                 >
                 <Option value="1">个</Option>

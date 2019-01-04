@@ -437,10 +437,10 @@ class Edit extends Component {
                                     }
                                     )}
                                 >
-                                    <Radio value={"true"}>是</Radio>
-                                    <Radio value={"false"}>否</Radio>
+                                    <Radio value={"1"}>是</Radio>
+                                    <Radio value={"0"}>否</Radio>
                                 </Radio.RadioGroup>) : (
-                                    <FormControl disabled={btnFlag == 2} value={isback} />
+                                    <FormControl disabled={btnFlag == 2} value={ isback === "1" ? "是" : "否"} />
                                 )
                         }
 
