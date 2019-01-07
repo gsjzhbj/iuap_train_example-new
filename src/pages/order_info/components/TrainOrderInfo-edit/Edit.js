@@ -551,8 +551,8 @@ class Edit extends Component {
                                         }
                                     >
                                             <Option value=""></Option>
-                                            <Option value={ '0' }>待确认</Option>
-                                            <Option value={ '1' }>已确认</Option>
+                                            <Option value={ '1' }>待确认</Option>
+                                            <Option value={ '2' }>已确认</Option>
                                     </Select>
                             </Col>
                             <Col md={4} xs={6}>
