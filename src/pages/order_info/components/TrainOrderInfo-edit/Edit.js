@@ -86,7 +86,7 @@ class Edit extends Component {
                 values.currType = refKeyArraycurrType.join();
                 values.orderDept = refKeyArrayorderDept.join();
                 values.orderBusiman = refKeyArrayorderBusiman.join();
-                values.planDate = values.planDate.format(format);
+                values.planDate = values.planDate && values.planDate.format && values.planDate.format(format) || '';
                 values.orderDate = values.orderDate.format(format);
                 let saveObj = Object.assign({}, rowData, values);
 
