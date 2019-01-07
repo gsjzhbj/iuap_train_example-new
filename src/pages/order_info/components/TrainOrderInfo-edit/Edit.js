@@ -414,7 +414,7 @@ class Edit extends Component {
                                     format={format}
                                     {
                                     ...getFieldProps('planDate', {
-                                        initialValue: planDate? moment(planDate):moment(),
+                                        initialValue: planDate? moment(planDate): '',
                                         validateTrigger: 'onBlur',
                                         rules: [{
                                             required: false, message: '请选择采购计划日期',
