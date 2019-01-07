@@ -329,7 +329,7 @@ class Edit extends Component {
                                 })
                             },
                             showKey: 'refname',
-                            verification: false,//是否进行校验
+                            verification: true,//是否进行校验
                             verKey: 'org',//校验字段
                             verVal: org
                         })} form={this.props.form} />
