@@ -61,8 +61,8 @@ export default class Arrive_orderPaginationTable extends Component {
                 },
                 {
                     title: "数量",
-                    dataIndex: "total",
-                    key: "total",
+                    dataIndex: "numtotal",
+                    key: "numtotal",
                      width:200,
                 },
 
