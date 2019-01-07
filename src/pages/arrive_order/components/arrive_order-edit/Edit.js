@@ -102,9 +102,9 @@ class Edit extends Component {
                 console.log('save delArray', delArraymaterial);
                 // 添加删除的数组，删除的数组中dr项的值都为1
                 let resultArray = childListmaterial.concat(delArraymaterial);
-                saveObj.total = 0;
+                saveObj.numtotal = 0;
                 childListmaterial.forEach(item => {
-                    saveObj.total +=  (Number(item.number) || 0);
+                    saveObj.numtotal +=  (Number(item.number) || 0);
                 });
                 let commitData = {
                     entity: saveObj,
