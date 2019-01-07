@@ -20,8 +20,8 @@ export default class TrainOrderInfoPaginationTable extends Component {
             column:[
                 {
                     title: "单据状态",
-                    dataIndex: "billstatus",
-                    key: "billstatus",
+                    dataIndex: "billStatusEnum",
+                    key: "billStatusEnum",
                     width:200,
                     render(text, record, index) {
                         if(text === '0'){

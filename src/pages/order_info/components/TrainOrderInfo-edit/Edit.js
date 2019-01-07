@@ -54,7 +54,7 @@ class Edit extends Component {
                     rowData:{
                         orderBusiman: decodeURI(decodeURI(getCookie('_A_P_userId')))
                     },
-                    refKeyArrayorderBusiman: orderBusiman?orderBusiman.split(','):[],
+                    refKeyArrayorderBusiman: orderBusiman ? orderBusiman.split(','):[],
                 })
             }
         }
@@ -163,9 +163,9 @@ class Edit extends Component {
                     planDateDisabled
         } = this.state;
 
-
+        console.log(refKeyArrayorderBusiman)
         let title = this.onChangeHead(btnFlag);
-        let { orderType,orderDeptName,orderNo,orderGoodsCount,orderOrg,currType,orderGoods,remark,orderBusimanName,planDate,orderDept,orderAmount,orderOrgName,currTypeName,orderDate,orderBusiman,orderName,billstatus } = rowData;
+        let { orderType,orderDeptName,orderNo,orderGoodsCount,orderOrg,currType,orderGoods,remark,orderBusimanName,planDate,orderDept,orderAmount,orderOrgName,currTypeName,orderDate,orderBusiman,orderName,billStatusEnum } = rowData;
         const { getFieldProps, getFieldError } = this.props.form;
         return (
             <div className='TrainOrderInfo-detail'>
@@ -544,9 +544,9 @@ class Edit extends Component {
                                     <Select
                                         disabled={true}
                                         {
-                                            ...getFieldProps('billstatus', {
+                                            ...getFieldProps('billStatusEnum', {
                                                 validateTrigger: 'onBlur',
-                                                initialValue: billstatus || '0',
+                                                initialValue: billStatusEnum || '0',
                                             })
                                         }
                                     >

@@ -23,12 +23,6 @@ export default class Arrive_orderPaginationTable extends Component {
             delData:[],
             column:[
                 {
-                    title: "单据号",
-                    dataIndex: "billcode",
-                    key: "billcode",
-                     width:200,
-                },
-                {
                     title: "库存组织",
                     dataIndex: "pk_org",
                     key: "pk_org",
@@ -59,18 +53,23 @@ export default class Arrive_orderPaginationTable extends Component {
                      width:200,
                      render: (text, record, index) => text ? text === "1" ? "是" : "否" : ''
                 },
-
-
                 {
-                    title: "备注",
-                    dataIndex: "note",
-                    key: "note",
+                    title: "单据号",
+                    dataIndex: "billcode",
+                    key: "billcode",
                      width:200,
                 },
                 {
                     title: "数量",
                     dataIndex: "total",
                     key: "total",
+                     width:200,
+                },
+
+                {
+                    title: "备注",
+                    dataIndex: "note",
+                    key: "note",
                      width:200,
                 },
                 {

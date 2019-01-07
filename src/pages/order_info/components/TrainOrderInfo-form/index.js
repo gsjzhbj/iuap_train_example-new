@@ -332,7 +332,7 @@ class TrainOrderInfoForm extends Component {
                                     <Label>订单状态</Label>
                                     <Select
                                             {
-                                            ...getFieldProps('billstatus', {
+                                            ...getFieldProps('billStatusEnum', {
                                             initialValue: '',
                                         })
                                     }
