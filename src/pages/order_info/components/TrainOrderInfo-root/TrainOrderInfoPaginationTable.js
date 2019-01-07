@@ -19,21 +19,6 @@ export default class TrainOrderInfoPaginationTable extends Component {
             delData:[],
             column:[
                 {
-                    title: "单据状态",
-                    dataIndex: "billstatus",
-                    key: "billstatus",
-                    width:200,
-                    render(text, record, index) {
-                        if(text === '1'){
-                            return '待确认';
-                        }else if(text === '2'){
-                            return '已确认';
-                        }else{
-                            return '';
-                        }
-                    }
-                },
-                {
                     title: "订单编号",
                     dataIndex: "orderNo",
                     key: "orderNo",
@@ -98,6 +83,12 @@ export default class TrainOrderInfoPaginationTable extends Component {
                     dataIndex: "planDate",
                     key: "planDate",
                      width:200,
+                },
+                {
+                    title: "单据状态",
+                    dataIndex: "billStatusEnumValue",
+                    key: "billStatusEnumValue",
+                    width:200
                 },
                  {
                     title: "备注信息",

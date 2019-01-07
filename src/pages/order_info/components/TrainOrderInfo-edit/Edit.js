@@ -48,13 +48,13 @@ class Edit extends Component {
                 rowData:rowData,
             })
         }else{
-            let orderBusiman = decodeURI(decodeURI(getCookie('_A_P_userId'))) || '';
-            if(orderBusiman){
+            let userid = decodeURI(decodeURI(getCookie('_A_P_userId'))) || '';
+            if(userid){
                 this.setState({
                     rowData:{
-                        orderBusiman: decodeURI(decodeURI(getCookie('_A_P_userId')))
+                        orderBusiman: decodeURI(decodeURI(getCookie('_A_P_userName')))
                     },
-                    refKeyArrayorderBusiman: orderBusiman ? orderBusiman.split(','):[],
+                    refKeyArrayorderBusiman: userid ? userid.split(','):[],
                 })
             }
         }
@@ -163,9 +163,8 @@ class Edit extends Component {
                     planDateDisabled
         } = this.state;
 
-        console.log(refKeyArrayorderBusiman)
         let title = this.onChangeHead(btnFlag);
-        let { orderType,orderDeptName,orderNo,orderGoodsCount,orderOrg,currType,orderGoods,remark,orderBusimanName,planDate,orderDept,orderAmount,orderOrgName,currTypeName,orderDate,orderBusiman,orderName,billStatusEnum } = rowData;
+        let { orderType,orderDeptName,orderNo,orderGoodsCount,orderOrg,currType,orderGoods,remark,orderBusimanName,planDate,orderDept,orderAmount,orderOrgName,currTypeName,orderDate,orderBusiman,orderName,billStatus } = rowData;
         const { getFieldProps, getFieldError } = this.props.form;
         return (
             <div className='TrainOrderInfo-detail'>
@@ -544,9 +543,9 @@ class Edit extends Component {
                                     <Select
                                         disabled={true}
                                         {
-                                            ...getFieldProps('billStatusEnum', {
+                                            ...getFieldProps('billStatus', {
                                                 validateTrigger: 'onBlur',
-                                                initialValue: billStatusEnum || '0',
+                                                initialValue: billStatus || '1',
                                             })
                                         }
                                     >
