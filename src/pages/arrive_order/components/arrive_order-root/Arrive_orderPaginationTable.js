@@ -318,18 +318,7 @@ export default class Arrive_orderPaginationTable extends Component {
                    
 
 
-                    <Button colors="primary" className="ml5" size='sm' onClick={ self.onLoadTemplate}>模板下载</Button>
-                    <AcUpload
-                        title={"导入"}
-                        action={`${GROBAL_HTTP_CTX}/arrive_order/toImportExcel`}
-                        multiple={false}
-                        onError={() => console.log('上传报错了')}
-                        onSuccess={self.handlerUploadSuccess}
-                        onDelete={ self.handlerUploadDelete}
-                    >
-                        <Button className="ml5" colors="primary" size='sm'>导入</Button>
-                    </AcUpload>
-                    <AcExport {...exportProps} className="ml5"/>
+                    {/* <Button colors="primary" className="ml5" size='sm' onClick={ self.onLoadTemplate}>模板下载</Button> */}
                 </div>
                 <PaginationTable
                         data={list}

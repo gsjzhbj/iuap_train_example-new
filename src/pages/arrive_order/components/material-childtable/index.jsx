@@ -308,28 +308,33 @@ class ChildTable extends Component {
         );
     }
 
-    EditableCellSelect = ({editable,value,onSelect}) =>(
-        <div>
-            {editable
-            ? (
-            <Select
-                    defaultValue = ''
-                    value = { value ? value + '' : '' }
-                    onSelect = { value => onSelect(value) }
-                >
-                <Option value="1">个</Option>
-                <Option value="2">只</Option>
-                <Option value="3">件</Option>
-                <Option value="4">条</Option>
-                <Option value="5">张</Option>
-                <Option value="6">杯</Option>
-                <Option value="7">双</Option>
-            </Select>
-            )
-            : value
-            }
-        </div>
-    )
+    EditableCellSelect = ({editable,value,onSelect}) =>{
+        let unitText = {
+            "1": "个",
+            "2": "只",
+            "3": "件",
+            "4": "条",
+            "5": "张",
+            "6": "杯",
+            "7": "双",
+        };
+        return (<div>
+                {editable
+                ? (
+                <Select
+                        defaultValue = ''
+                        value = { value ? value + '' : '' }
+                        onSelect = { value => onSelect(value) }
+                    >
+                    {
+                        Object.keys(unitText).map(item=><Option value={item}>{unitText[item] || ''}</Option>)
+                    }
+                </Select>
+                )
+                : unitText[value] || ''
+                }
+            </div>)
+    }
 
     handleTableSelect = (value, index, column)=> {
         const newData = [...this.props.childListmaterial];

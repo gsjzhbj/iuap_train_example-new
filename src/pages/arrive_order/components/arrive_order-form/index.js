@@ -107,20 +107,6 @@ class Arrive_orderForm extends Component {
 
                                 </FormItem>
                             </Col>
-                            <Col md={4} xs={6}>
-                                <FormItem>
-                                    <Label>库存组织</Label>
-                                    <FormControl
-                                            {
-                                            ...getFieldProps('pk_org', {
-                                                initialValue: '',
-                                            })
-                                        }
-                                    />
-
-
-                                </FormItem>
-                            </Col>
                 </Row>
             </SearchPanel>
         )
