@@ -18,7 +18,7 @@ import { setCookie, getCookie} from "utils";
 
 const FormItem = Form.FormItem;
 const Option = Select.Option;
-const format = "YYYY-MM-DD HH:mm:ss";
+const format = "YYYY-MM-DD";
 
 class Edit extends Component {
     constructor(props) {
