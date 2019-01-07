@@ -213,7 +213,7 @@ class Edit extends Component {
                                         refType: 1,//1:树形 2.单表 3.树卡型 4.多选 5.default
                                         className: '',
                                         param: {//url请求参数
-                                            refCode: 'neworganizition',
+                                            refCode: 'neworganizition1',
                                             tenantId: '',
                                             sysId: '',
                                             transmitParam: '1',
@@ -445,7 +445,7 @@ class Edit extends Component {
                                         refType: 1,//1:树形 2.单表 3.树卡型 4.多选 5.default
                                         className: '',
                                         param: {//url请求参数
-                                            refCode: 'newdept',
+                                            refCode: 'newdept1',
                                             tenantId: '',
                                             sysId: '',
                                             transmitParam: '1',
