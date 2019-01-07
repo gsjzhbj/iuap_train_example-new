@@ -259,9 +259,9 @@ class Edit extends Component {
         let title = this.onChangeHead(btnFlag);
         let { note, receiver, org, supplier, receive_time, billcode, isback, pk_org, } = rowData;
         const { getFieldProps, getFieldError } = this.props.form;
-        let total = 0;
+        let numtotal = 0;
         childListmaterial.forEach(item=>{
-            total += (Number(item.number) || 0);
+            numtotal += (Number(item.number) || 0);
         });
         return (
             <div className='arrive_order-detail'>
@@ -477,7 +477,7 @@ class Edit extends Component {
                         <Label>
                             数量：
                                 </Label>
-                        {total || 0}
+                        {numtotal || 0}
 
                     </Col>
 
