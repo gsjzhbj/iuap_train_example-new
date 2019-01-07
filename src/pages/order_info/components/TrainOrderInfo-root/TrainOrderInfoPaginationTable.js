@@ -24,9 +24,9 @@ export default class TrainOrderInfoPaginationTable extends Component {
                     key: "billstatus",
                     width:200,
                     render(text, record, index) {
-                        if(text === '0'){
+                        if(text === '1'){
                             return '待确认';
-                        }else if(text === '1'){
+                        }else if(text === '2'){
                             return '已确认';
                         }else{
                             return '';
