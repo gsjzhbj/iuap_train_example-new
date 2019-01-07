@@ -293,7 +293,7 @@ export default class Arrive_orderPaginationTable extends Component {
                     <BpmButtonSubmit
                             className="ml5 "
                             checkedArray = {selectData}
-                            funccode = "iuap-pap-quickstart"
+                            funccode = "arriveorder"
                             nodekey = "003"
                             url = {`${GROBAL_HTTP_CTX}/arrive_order/submit`}
                             urlAssignSubmit={`${GROBAL_HTTP_CTX}/arrive_order/assignSubmit`}
