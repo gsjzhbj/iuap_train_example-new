@@ -5,6 +5,7 @@ const URL = {
     "SAVE_ORDER":  `${GROBAL_HTTP_CTX}/order_info/save`,
     "GET_LIST":  `${GROBAL_HTTP_CTX}/order_info/list`,
     "DEL_ORDER":  `${GROBAL_HTTP_CTX}/order_info/deleteBatch`,
+    "CONFIRM":  `${GROBAL_HTTP_CTX}/order_info/confirm`,
 
 
 }

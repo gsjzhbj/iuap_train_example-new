@@ -29,8 +29,10 @@ class Edit extends Component {
                 refKeyArraycurrType:[],
                 refKeyArrayorderDept:[],
                 refKeyArrayorderBusiman:[],
+                planDateDisabled: true,
             fileNameData: props.rowData.attachment || [],//上传附件数据
         }
+        
     }
     async componentWillMount() {
         await actions.TrainOrderInfo.getOrderTypes();
@@ -45,6 +47,16 @@ class Edit extends Component {
             this.setState({
                 rowData:rowData,
             })
+        }else{
+            let orderBusiman = decodeURI(decodeURI(getCookie('_A_P_userId'))) || '';
+            if(orderBusiman){
+                this.setState({
+                    rowData:{
+                        orderBusiman: decodeURI(decodeURI(getCookie('_A_P_userId')))
+                    },
+                    refKeyArrayorderBusiman: orderBusiman?orderBusiman.split(','):[],
+                })
+            }
         }
 
     }
@@ -148,13 +160,13 @@ class Edit extends Component {
                     refKeyArraycurrType,
                     refKeyArrayorderDept,
                     refKeyArrayorderBusiman,
+                    planDateDisabled
         } = this.state;
 
 
         let title = this.onChangeHead(btnFlag);
-        let { orderType,orderDeptName,orderNo,orderGoodsCount,orderOrg,currType,orderGoods,remark,orderBusimanName,planDate,orderDept,orderAmount,orderOrgName,currTypeName,orderDate,orderBusiman,orderName, } = rowData;
+        let { orderType,orderDeptName,orderNo,orderGoodsCount,orderOrg,currType,orderGoods,remark,orderBusimanName,planDate,orderDept,orderAmount,orderOrgName,currTypeName,orderDate,orderBusiman,orderName,billstatus } = rowData;
         const { getFieldProps, getFieldError } = this.props.form;
-
         return (
             <div className='TrainOrderInfo-detail'>
                 <Loading
@@ -211,7 +223,7 @@ class Edit extends Component {
                                         keyList:refKeyArrayorderOrg,//选中的key
                                         onSave: function (sels) {
                                             console.log(sels);
-                                            var temp = sels.map(v => v.id)
+                                            var temp = sels.map(v => v.id);
                                             console.log("temp",temp);
                                             self.setState({
                                                 refKeyArrayorderOrg: temp,
@@ -235,12 +247,25 @@ class Edit extends Component {
                                     <Select disabled={btnFlag == 2}
                                         {
                                         ...getFieldProps('orderType', {
-                                            initialValue: typeof orderType === 'undefined' ? "" : orderType ,
+                                            initialValue: btnFlag == 0 ? "1" : typeof orderType === 'undefined' ? "" : orderType ,
                                             rules: [{
                                                 required: false, message: '请选择订单类型',
                                             }],
                                         }
-                                        )}>
+                                        )}
+                                        onSelect={(value)=>{
+                                            if(btnFlag !== 1) return;
+                                            if(value === "2"){
+                                                this.setState({
+                                                    planDateDisabled: false
+                                                });
+                                            }else{
+                                                this.setState({
+                                                    planDateDisabled: true
+                                                });
+                                            }
+                                        }}   
+                                    >
                                         <Option value="">请选择</Option>
                                             <Option value={ '1' }>日常采购</Option>
                                             <Option value={ '2' }>计划采购</Option>
@@ -385,7 +410,7 @@ class Edit extends Component {
                                 <Label class="datepicker">
                                     采购计划日期：
                                 </Label>
-                                <DatePicker className='form-item' disabled={btnFlag == 2}
+                                <DatePicker className='form-item' disabled={btnFlag == 2 || btnFlag == 0 || planDateDisabled}
                                     format={format}
                                     {
                                     ...getFieldProps('planDate', {
@@ -452,7 +477,7 @@ class Edit extends Component {
                                 <Label class="datepicker">
                                     请购时间：
                                 </Label>
-                                <DatePicker className='form-item' disabled={btnFlag == 2}
+                                <DatePicker className='form-item' disabled={btnFlag == 2 || btnFlag == 0}
                                     format={format}
                                     {
                                     ...getFieldProps('orderDate', {
@@ -514,7 +539,22 @@ class Edit extends Component {
                                     {getFieldError('orderBusiman')}
                                 </span>
                             </Col>
-
+                            <Col md={4} xs={6}>
+                                    <Label>订单状态</Label>
+                                    <Select
+                                        disabled={true}
+                                        {
+                                            ...getFieldProps('billstatus', {
+                                                validateTrigger: 'onBlur',
+                                                initialValue: billstatus || '0',
+                                            })
+                                        }
+                                    >
+                                            <Option value=""></Option>
+                                            <Option value={ '0' }>待确认</Option>
+                                            <Option value={ '1' }>已确认</Option>
+                                    </Select>
+                            </Col>
                             <Col md={4} xs={6}>
                                 <Label>
                                     备注信息：

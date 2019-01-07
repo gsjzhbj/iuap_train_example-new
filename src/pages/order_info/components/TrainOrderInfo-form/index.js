@@ -145,9 +145,9 @@ class TrainOrderInfoForm extends Component {
                                     }
                                     >
                                             <Option value="">请选择</Option>
-                                              <Option value={ 1 }>日常采购</Option>
-                                              <Option value={ 2 }>计划采购</Option>
-                                              <Option value={ 3 }>合同采购</Option>
+                                              <Option value={ '1' }>日常采购</Option>
+                                              <Option value={ '2' }>计划采购</Option>
+                                              <Option value={ '3' }>合同采购</Option>
                                     </Select>
 
                                 </FormItem>
@@ -325,6 +325,22 @@ class TrainOrderInfoForm extends Component {
                                     />
 
 
+                                </FormItem>
+                            </Col>
+                            <Col md={4} xs={6}>
+                                <FormItem>
+                                    <Label>订单状态</Label>
+                                    <Select
+                                            {
+                                            ...getFieldProps('billstatus', {
+                                            initialValue: '',
+                                        })
+                                    }
+                                    >
+                                            <Option value="">请选择</Option>
+                                              <Option value={ '0' }>待确认</Option>
+                                              <Option value={ '1' }>已确认</Option>
+                                    </Select>
                                 </FormItem>
                             </Col>
                 </Row>

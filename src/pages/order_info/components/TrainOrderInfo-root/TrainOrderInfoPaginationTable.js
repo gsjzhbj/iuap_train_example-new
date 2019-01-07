@@ -19,6 +19,21 @@ export default class TrainOrderInfoPaginationTable extends Component {
             delData:[],
             column:[
                 {
+                    title: "单据状态",
+                    dataIndex: "billstatus",
+                    key: "billstatus",
+                    width:200,
+                    render(text, record, index) {
+                        if(text === '0'){
+                            return '待确认';
+                        }else if(text === '1'){
+                            return '已确认';
+                        }else{
+                            return '';
+                        }
+                    }
+                },
+                {
                     title: "订单编号",
                     dataIndex: "orderNo",
                     key: "orderNo",
@@ -28,7 +43,7 @@ export default class TrainOrderInfoPaginationTable extends Component {
                     title: "请购单位",
                     dataIndex: "orderOrgName",
                     key: "orderOrgName",
-                     width:200,
+                    width:200,
                 },
                 {
                     title: "订单类型",
@@ -263,6 +278,18 @@ export default class TrainOrderInfoPaginationTable extends Component {
         })
         return (sum);
     }
+    // 修改数据
+    changeData = ()=>{
+        let {selectData} = this.state;
+        if(selectData.length>0){
+            
+            actions.TrainOrderInfo.changeData({
+                data:selectData
+            });
+        } else {
+            Message.create({content: "请选择提交数据", color: 'danger'});
+        }
+    }
 
     render(){
         const self=this;
@@ -275,10 +302,12 @@ export default class TrainOrderInfoPaginationTable extends Component {
                 <Header title='培训请购单'/>
                 <TrainOrderInfoForm { ...this.props }/>
                 <div className='table-header mt25'>
-                    <Button colors="primary" style={{"marginLeft":15}} size='sm' onClick={() => { self.cellClick({},0) }}>
+                    <Button colors="primary" style={{"marginLeft":15}} size='sm' onClick={() => { self.cellClick({},0)}}>
                     新增
                     </Button>
-                   
+                    <Button colors="primary" style={{"marginLeft":15}} size='sm' onClick={() => { self.changeData() }}>
+                    确认
+                    </Button>
 
 
                 </div>

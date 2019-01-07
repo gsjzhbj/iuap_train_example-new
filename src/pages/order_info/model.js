@@ -151,6 +151,12 @@ export default {
             let {data:{detailMsg:{data:{content}}}}=await api.getDetail(param);
             return content[0];
         },
+        async changeData(param,getState) {
+            let res = processData( await api.changeData(param),'修改数据成功');
+            if(res) {
+                actions.TrainOrderInfo.loadList();
+            }
+        },
 
         
 
