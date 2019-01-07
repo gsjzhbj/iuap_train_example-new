@@ -79,3 +79,13 @@ export const getDetail = (params) => {
         param: params
     });
 }
+/**
+ * 修改状态
+ * @param {*} params
+ */
+export const changeData = (params) => {
+    return request(URL.CONFIRM, {
+        method: "post",
+        data:params
+    });
+}
