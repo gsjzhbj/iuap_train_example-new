@@ -50,12 +50,12 @@ class Edit extends Component {
     save = () => {//保存
         this.props.form.validateFields(async (err, values) => {
             values.attachment = this.state.fileNameData;
-            let numArray = [
-                "total",
-            ];
-            for (let i = 0, len = numArray.length; i < len; i++) {
-                values[numArray[i]] = Number(values[numArray[i]]);
-            }
+            // let numArray = [
+            //     "total",
+            // ];
+            // for (let i = 0, len = numArray.length; i < len; i++) {
+            //     values[numArray[i]] = Number(values[numArray[i]]);
+            // }
 
 
             if (err) {
@@ -329,7 +329,7 @@ class Edit extends Component {
                                 })
                             },
                             showKey: 'refname',
-                            verification: true,//是否进行校验
+                            verification: false,//是否进行校验
                             verKey: 'org',//校验字段
                             verVal: org
                         })} form={this.props.form} />
