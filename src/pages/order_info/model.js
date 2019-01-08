@@ -152,11 +152,12 @@ export default {
             return content[0];
         },
         async changeData(param,getState) {
-            let res = processData( await api.changeData(param.data),'修改数据成功');
-            if(res) {
+            let response = await api.changeData(param.data)
+            processData( response,'修改数据成功');
+            if(response.data.success && response.data.success === "success") {
                 actions.TrainOrderInfo.loadList();
             }
-        },
+        }
 
         
 
